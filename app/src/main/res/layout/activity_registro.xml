@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Registro"
+    android:background="@color/semiNegro"
+    android:id="@+id/vista">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registro de Árboles"
+        android:padding="15dp"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:background="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/et_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25sp"
+        android:ems="10"
+        android:textSize="20sp"
+        android:inputType="textPersonName"
+        android:hint="Nombre Descriptivo"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/et_especie"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Especie"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/et_edad"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Edad"
+        android:inputType="number"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/et_altura"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Altura"
+        android:inputType="number"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/et_comentarios"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Comentarios"
+        android:inputType="textMultiLine"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/boton_foto"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/camara"
+        android:text="Subir Imagen"
+        android:textColor="@android:color/black"
+        android:background="@android:color/white"/>
+
+    <Button
+        android:id="@+id/boton_subir"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:text="Registrar Arbol"
+        android:background="@color/verdeOscuro"/>
+
+</LinearLayout>
