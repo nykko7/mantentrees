@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "695885264695",
+    "firebase_url": "https://mantentrees.firebaseio.com",
+    "project_id": "mantentrees",
+    "storage_bucket": "mantentrees.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695885264695:android:f124c71f01b1fac9",
+        "android_client_info": {
+          "package_name": "cl.unab.mantentrees"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695885264695-6tijbpmi1b5ptefb5nn467jkv2hnq2rp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cl.unab.mantentrees",
+            "certificate_hash": "cdf3e64b39733ccfbc124b6734c0c0aff019f7f9"
+          }
+        },
+        {
+          "client_id": "695885264695-1iogl8b3pd32bvuojnp4ig14ei62gq45.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "695885264695-1iogl8b3pd32bvuojnp4ig14ei62gq45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuPx9kHZqoD3qr3qlZ2Ku61c_0j18Hnr4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695885264695-1iogl8b3pd32bvuojnp4ig14ei62gq45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
