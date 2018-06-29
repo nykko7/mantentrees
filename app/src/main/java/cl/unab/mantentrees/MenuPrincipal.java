@@ -59,7 +59,7 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     public void abrir_registros() {
-        Intent intent = new Intent(this, ListaRegistros.class);
+        Intent intent = new Intent(this, ArbolesActivity.class);
         startActivity(intent);
     }
 

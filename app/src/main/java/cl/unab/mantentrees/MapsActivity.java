@@ -2,6 +2,10 @@ package cl.unab.mantentrees;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.graphics.BitmapFactory;
+import android.location.Location;
+import android.location.LocationListener;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -12,12 +16,24 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
+    private ChildEventListener mChildEventListner;
+    private DatabaseReference mArboles;
+    Marker marker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +46,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
+            ChildEventListener mChildEventListener;
+            mArboles = FirebaseDatabase.getInstance().getReference("Arboles");
+            mArboles.push().setValue(marker);
         }
         else{
             Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, (Activity)getApplicationContext(), 10);
@@ -50,16 +69,54 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        googleMap.setOnMarkerClickListener(this);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mArboles.addListenerForSingleValueEvent(new ValueEventListener() {
+            LatLng location;
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot s : dataSnapshot.getChildren()){
+                    Upload arbol = s.getValue(Upload.class);
+                    location = new LatLng(arbol.getmLatitud(), arbol.getmLongitud());
+                    mMap.addMarker(new MarkerOptions().position(location).title(arbol.getmNombre())).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
 
+                }
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,16));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         UiSettings uiSettings = mMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(true);
 
-        // Add a marker in Sydney and move the camera
-        LatLng unab = new LatLng(-33.0131488, -71.5416479);
-        mMap.addMarker(new MarkerOptions().position(unab).title("UNAB"));
-        float zoomLevel = 17;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(unab, zoomLevel));
 
+    }
 
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        return false;
     }
 }

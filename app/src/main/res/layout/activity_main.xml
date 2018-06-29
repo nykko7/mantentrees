@@ -17,30 +17,34 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="17dp"
         android:text="Mantentrees"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="40sp" />
+        android:textSize="50sp"
+        app:fontFamily="@font/happy_monkey" />
 
     <EditText
-        android:id="@+id/et_usuario"
+        android:id="@+id/login_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/et_password"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="127dp"
         android:ems="10"
-        android:hint="Usuario"
-        android:inputType="textPersonName"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         android:textColorHint="@android:color/white"
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/login_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="173dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -48,13 +52,34 @@
         android:textSize="25sp" />
 
     <Button
-        android:id="@+id/boton_entrar"
-        android:layout_width="wrap_content"
+        android:id="@+id/signin_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_password"
+        android:layout_below="@+id/login_password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
         android:background="@color/verdeOscuro"
         android:text="Entrar"/>
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signin_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Solicitar Registro"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/register_button"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/>
+
 
 </RelativeLayout>
